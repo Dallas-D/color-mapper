@@ -1,6 +1,8 @@
 # color-mapper
-Maps colors for a directory of images to a different color palette
+Maps colors for a directory of images to a different color palette. Only intended for pngs. It will keep any transparencies, and just update the color
+
 *Requires:* Python 2.7, matplotlib, colormath
+
 *Note:* This will take a long time to run as it uses CIEDE2000 for calculating distances between colors. This provides a better measure of which colors to choose as it's based on perceived differences as opposed to euclidean distance.
 
 ## Usage
