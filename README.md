@@ -1,5 +1,7 @@
 # color-mapper
 Maps colors for a directory of images to a different color palette
+*Requires:* Python 2.7, matplotlib, colormath
+*Note:* This will take a long time to run as it uses CIEDE2000 for calculating distances between colors. This provides a better measure of which colors to choose as it's based on perceived differences as opposed to euclidean distance.
 
 ## Usage
     >>> python map_colors.py directory palette [-n/--number no_of_colors]
