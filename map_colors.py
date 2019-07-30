@@ -209,10 +209,8 @@ if __name__ == '__main__':
         for row in img:
             for pixel in row:
                 pixel[:3] = closest_color(pixel[:3], color_pal)
-        plt.imshow(img)
-        plt.show()
-        #try:
-        #    plt.imsave(name, img)
-        #except:
-        #    print 'Could not write:' + name
+        try:
+            plt.imsave(name, img)
+        except:
+            print 'Could not write:' + name
         
