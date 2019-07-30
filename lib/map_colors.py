@@ -2,7 +2,8 @@ from matplotlib import pyplot as plt
 import fnmatch
 import os
 from .utils import closest_color, ciede_distance
-from color_palettes import *
+from aek import *
+from wad import *
 
 # Possible color-palettes:
 # 16 color: WAD_OPTIMUM, AEK_16
