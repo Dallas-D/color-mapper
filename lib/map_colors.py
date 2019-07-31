@@ -1,17 +1,21 @@
 from matplotlib import pyplot as plt
 import fnmatch
 import os
-from .utils import closest_color, ciede_distance
+from utils import closest_color, ciede_distance
 from aek import *
 from wad import *
+from grey import *
 
 # Possible color-palettes:
 # 16 color: WAD_OPTIMUM, AEK_16
 # 32 color: AEK_32
 # 54 color: AEK_54
 
-dir = 'directory to search/'
-color_pal = COLOR_PALETTE_TO_USE
+dir = 'testing'
+extend_grey_palette(16)
+color_pal = GREY
+rgb = False
+use_archive = False
 
 all_images = []
 for root, dirnames, filenames in os.walk(dir):
@@ -30,9 +34,12 @@ for name in all_images:
         continue
     for row in img:
         for pixel in row:
-            pixel[:3] = closest_color(pixel[:3], color_pal)
+            if (img.shape[2] == 4 and pixel[3] != 0) or img.shape[2] == 3:
+                pixel[:3] = closest_color(pixel[:3], color_pal, rgb, use_archive)
+    plt.imshow(img)
+    plt.show()
     try:
-        plt.imsave(name, img)
+        plt.imsave('testing_' + name, img)
     except:
         print 'Could not write:' + name
 
