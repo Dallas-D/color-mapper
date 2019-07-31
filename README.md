@@ -1,7 +1,7 @@
 # color-mapper
 Maps colors for a directory of images to a different color palette. Only intended for pngs. It will keep any transparencies, and just update the color
 
-*Requires:* Python 2.7, matplotlib, colormath
+*Requires:* Python 2.7, numpy, matplotlib, colormath, opencv (if using map_greys)
 
 *Note:* This will take a long time to run as it uses CIEDE2000 for calculating distances between colors. This provides a better measure of which colors to choose as it's based on perceived differences as opposed to euclidean distance.
 
@@ -10,6 +10,10 @@ Maps colors for a directory of images to a different color palette. Only intende
 - directory = directory containing the images (as .pngs)
 - palette = type of palette to use (currently available: WAD or AEK)
 - number (opt) = number of colors to use in the palette (currently available: 16, 32, or 54)
+
+### For grey images with a continuous palette:
+    >>> python map_greys.py directory 
+- directory = directory containing the images (as .pngs)
 
 ## Credits
 The palettes used here came from these website:
